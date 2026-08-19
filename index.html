@@ -203,9 +203,10 @@
 
   <div class="section">
     <div class="kicker">連携</div>
-    <h2>基幹系システムとの連携</h2>
-    <p style="margin-bottom:16px;">①スマホアプリは、会員・車両・予約等の情報を一から作るのではなく、既存の基幹系システム（会員・車両・予約等のマスタを保有）と連携する前提で設計します。基幹系は別会社様が保守されている想定のため、連携方式（API・ファイル連携等）は今後の協議事項です。</p>
+    <h2>各システムと基幹系システムとの連携</h2>
+    <p style="margin-bottom:16px;">①②③はいずれも、会員・車両・予約・顧客等の情報を一から作るのではなく、既存の基幹系システム（会員・車両・予約等のマスタを保有）と連携する前提で設計します。基幹系は別会社様が保守されている想定のため、連携方式（API・ファイル連携等）は今後の協議事項です。</p>
 
+    <h3 style="margin-top:22px;">①スマホアプリ</h3>
     <div class="diagram">
       <div class="diagram-title">①アプリ × 基幹系システム 連携イメージ</div>
 
@@ -229,8 +230,57 @@
         </div>
       </div>
     </div>
+    <div class="info-box">アプリ内のオンボーディング・FAQ・お知らせ等、一部の画面は基幹系との連携なしでアプリ単体で完結します。</div>
 
-    <div class="info-box">アプリ内のオンボーディング・FAQ・お知らせ等、一部の画面は基幹系との連携なしでアプリ単体で完結します。連携が必要な機能の詳細一覧は、別紙の設計ドキュメントでご確認いただけます。</div>
+    <h3 style="margin-top:26px;">②反響集約システム</h3>
+    <div class="diagram">
+      <div class="diagram-title">②反響集約システム × 基幹系システム 連携イメージ</div>
+
+      <div class="arch-row-label">②反響集約システム（Orbitが開発）</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-b">既存顧客の照合<span class="sub2">問い合わせ者が会員かどうか</span></div>
+        <div class="arch-box2 accent-b">店舗への振り分け<span class="sub2">担当店舗・担当者の割当</span></div>
+        <div class="arch-box2 accent-b">対応履歴の記録<span class="sub2">来店・成約・失注</span></div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">API連携（方式は今後協議・未確定）</span></div>
+
+      <div class="core-wrap">
+        <div class="core-label">基幹系システム（既存DMS・別会社保守・仕様未確定）</div>
+        <div class="arch-row">
+          <div class="arch-box2 accent-core">会員マスタ</div>
+          <div class="arch-box2 accent-core">店舗マスタ</div>
+          <div class="arch-box2 accent-core">顧客対応履歴</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">6メディアからの問い合わせデータそのものは各媒体からの受信（API/メール等）が起点です。基幹系との連携は「その問い合わせが誰なのか・どの店舗が対応するか・結果をどこに記録するか」の部分に発生します。</div>
+
+    <h3 style="margin-top:26px;">③顧客フォローシステム</h3>
+    <div class="diagram">
+      <div class="diagram-title">③顧客フォローシステム × 基幹系システム 連携イメージ</div>
+
+      <div class="arch-row-label">③顧客フォローシステム（Orbitが開発）</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-g">顧客・車両・契約情報<span class="sub2">車検証・保険契約等</span></div>
+        <div class="arch-box2 accent-g">担当営業の紐付け<span class="sub2">異動・引き継ぎ含む</span></div>
+        <div class="arch-box2 accent-g">フォロー実施結果の記録</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">API連携（方式は今後協議・未確定）</span></div>
+
+      <div class="core-wrap">
+        <div class="core-label">基幹系システム（既存DMS・別会社保守・仕様未確定）</div>
+        <div class="arch-row">
+          <div class="arch-box2 accent-core">顧客・車両マスタ</div>
+          <div class="arch-box2 accent-core">契約情報<span class="sub2">車検/保険</span></div>
+          <div class="arch-box2 accent-core">担当者マスタ</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">顧客・車両・契約情報や担当営業の紐付けは、③が新たに持つ（パターンA）か、基幹系を参照する（パターンB）かで設計が変わります。上図はパターンB（基幹系参照）を前提にしたイメージです。この選択はヒアリングで確定します。</div>
+
+    <div class="info-box" style="margin-top:18px;">連携が必要な機能の詳細一覧は、別紙の設計ドキュメントでご確認いただけます。</div>
   </div>
 
   <div class="section">
