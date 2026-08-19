@@ -49,6 +49,7 @@
   td { padding:10px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; line-height:1.6; }
 
   .info-box { background:#f0f0ff; border:1px solid #c5cae9; border-radius:8px; padding:14px 16px; font-size:12.5px; color:#3949ab; margin-top:14px; line-height:1.7; }
+  .warn-box { background:#fff8e1; border:1px solid #ffcc80; border-radius:8px; padding:14px 16px; font-size:12.5px; color:#e65100; margin-top:14px; line-height:1.7; }
   .cta { display:inline-block; margin-top:6px; background:#7c83fd; color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; }
 
   .footer-note { text-align:center; font-size:11px; color:#999; margin-top:30px; }
@@ -65,6 +66,10 @@
   .arch-box2.accent-g    { border-color:#66bb6a; background:#f1f9f1; color:#2e7d32; }
   .arch-box2.accent-core { border-color:#ef9a9a; background:#fff5f5; color:#c62828; border-style:dashed; }
   .arch-box2.accent-plain{ border-color:#ccc; background:#fafafa; color:#666; }
+  .arch-box2.accent-p    { border-color:#ab47bc; background:#faf3fb; color:#7b1fa2; }
+  .arch-box2.accent-o    { border-color:#ffa726; background:#fff8f0; color:#e65100; }
+  .sys-grid.cols2 { grid-template-columns: repeat(2, 1fr); }
+  .new-tag { display:inline-block; background:#ffa726; color:#fff; font-size:10px; font-weight:700; border-radius:8px; padding:2px 8px; margin-left:8px; vertical-align:middle; }
   .arch-vline { text-align:center; color:#bbb; font-size:15px; margin:6px 0; min-width:640px; }
   .arch-vline .note2 { font-size:10px; color:#999; margin-left:4px; font-weight:400; }
   .core-wrap { border:1.5px dashed #ef9a9a; border-radius:10px; padding:14px 16px; background:#fff8f8; min-width:640px; }
@@ -281,6 +286,70 @@
     <div class="info-box">顧客・車両・契約情報や担当営業の紐付けは、③が新たに持つ（パターンA）か、基幹系を参照する（パターンB）かで設計が変わります。上図はパターンB（基幹系参照）を前提にしたイメージです。この選択はヒアリングで確定します。</div>
 
     <div class="info-box" style="margin-top:18px;">連携が必要な機能の詳細一覧は、別紙の設計ドキュメントでご確認いただけます。</div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">追加ご提案</div>
+    <h2>④営業向けCRM＋AIロープレ<span class="new-tag">NEW</span> ／ ⑤評価制度＋社内スタッフ管理<span class="new-tag">NEW</span></h2>
+    <p style="margin-bottom:16px;">①〜③（顧客接点・反響・フォロー）に加え、営業スタッフの育成・評価を強化する仕組みとしてご提案します。amptalk coach（<a href="https://amptalk.co.jp/product/ai-roleplay" target="_blank" style="color:#7c83fd;">https://amptalk.co.jp/product/ai-roleplay</a>）のようなAIロープレツールを参考に、ツチヤ自動車様の業務（新車/中古車商談・買取査定・車検/保険提案等）に合わせたシナリオで営業力を標準化し、その練習成果を人事評価に接続します。①〜③は顧客・案件が対象ですが、④⑤は営業スタッフ本人が対象という点で毛色が異なります。</p>
+
+    <div class="sys-grid cols2" style="margin-bottom:18px;">
+      <div class="sys-card">
+        <div class="num">④</div>
+        <h3>営業向けCRM＋AIロープレ</h3>
+        <p style="font-size:12.5px;">AIとの商談シミュレーションによる営業トレーニングと、商談・案件管理を行うCRM機能。</p>
+        <ul>
+          <li>AIロープレ（新車/中古車商談・査定・保険提案等のシナリオ）</li>
+          <li>AIによる自動評価・スコアリング</li>
+          <li>AIシナリオ自動作成（お題の生成）</li>
+          <li>商談・案件の登録・進捗管理（CRM）</li>
+          <li>個人・店舗別トレーニング状況のダッシュボード</li>
+        </ul>
+      </div>
+      <div class="sys-card">
+        <div class="num">⑤</div>
+        <h3>評価制度＋社内スタッフ管理</h3>
+        <p style="font-size:12.5px;">④のロープレ・商談実績を人事評価に接続し、公平で継続的な育成サイクルを支える基盤。</p>
+        <ul>
+          <li>社内スタッフマスタ（氏名・所属店舗・役職・権限）</li>
+          <li>評価基準・評価項目の設定</li>
+          <li>AIスコア＋上長評価のハイブリッド評価フロー</li>
+          <li>評価結果・フィードバックの履歴管理</li>
+          <li>個人別育成計画との紐付け</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="diagram">
+      <div class="diagram-title">④⑤ 全体イメージ</div>
+
+      <div class="arch-row-label">営業スタッフ（7店舗）</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-plain">営業スタッフ</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">ロープレ実施・商談記録</span></div>
+
+      <div class="arch-row-label">④⑤（今回の追加ご提案）</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-p">④AIロープレ<span class="sub2">シナリオ・自動評価</span></div>
+        <div class="arch-box2 accent-p">④営業CRM<span class="sub2">商談・案件管理</span></div>
+        <div class="arch-box2 accent-o">⑤評価制度<span class="sub2">評価基準・評価フロー</span></div>
+        <div class="arch-box2 accent-o">⑤スタッフ管理<span class="sub2">社内スタッフマスタ</span></div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">案件・対応履歴の参照・記録</span></div>
+
+      <div class="arch-row-label">既存のご提案システム／基幹系</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-b">②反響集約システム</div>
+        <div class="arch-box2 accent-g">③顧客フォローシステム</div>
+        <div class="arch-box2 accent-core" style="border-style:dashed;">基幹系・人事情報<span class="sub2">スタッフマスタの所在は要確認</span></div>
+      </div>
+    </div>
+
+    <div class="info-box">④営業CRMは②反響集約・③顧客フォローが持つ「案件・対応履歴」データと連携することで、商談内容とAIロープレでの練習内容を結びつけられます。⑤の社内スタッフマスタは、既存の人事システムがあればそちらと連携するか、新規に構築するかをヒアリングで確認します。</div>
+    <div class="warn-box" style="margin-top:12px;">④⑤は①〜③とは別軸の追加ご提案のため、お見積り・スケジュールは別枠でご用意します（現行のestimate.htmlは①〜③のみが対象です）。</div>
   </div>
 
   <div class="section">
