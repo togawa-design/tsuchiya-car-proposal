@@ -52,6 +52,29 @@
   .cta { display:inline-block; margin-top:6px; background:#7c83fd; color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; }
 
   .footer-note { text-align:center; font-size:11px; color:#999; margin-top:30px; }
+
+  /* Diagrams */
+  .diagram { background:#f7f7fb; border:1px solid #e4e4f5; border-radius:12px; padding:28px 24px 22px; margin-bottom:18px; overflow-x:auto; }
+  .diagram-title { text-align:center; font-size:10px; font-weight:700; color:#9a9ac0; letter-spacing:1.5px; margin-bottom:18px; text-transform:uppercase; }
+  .arch-row { display:flex; gap:14px; flex-wrap:nowrap; justify-content:center; min-width:640px; }
+  .arch-row-label { text-align:center; font-size:10px; font-weight:700; color:#aaa; letter-spacing:1px; margin-bottom:8px; }
+  .arch-box2 { background:#fff; border:1.5px solid #ddd; border-radius:10px; padding:12px 18px; font-size:12px; font-weight:700; text-align:center; min-width:150px; box-shadow:0 1px 3px rgba(0,0,0,.05); color:#444; }
+  .arch-box2 .sub2 { font-size:10px; font-weight:400; color:#888; display:block; margin-top:4px; line-height:1.4; }
+  .arch-box2.accent-app  { border-color:#7c83fd; background:#f5f5ff; color:#4a4fd1; transform:scale(1.06); }
+  .arch-box2.accent-b    { border-color:#42a5f5; background:#f0f8ff; color:#1565c0; }
+  .arch-box2.accent-g    { border-color:#66bb6a; background:#f1f9f1; color:#2e7d32; }
+  .arch-box2.accent-core { border-color:#ef9a9a; background:#fff5f5; color:#c62828; border-style:dashed; }
+  .arch-box2.accent-plain{ border-color:#ccc; background:#fafafa; color:#666; }
+  .arch-vline { text-align:center; color:#bbb; font-size:15px; margin:6px 0; min-width:640px; }
+  .arch-vline .note2 { font-size:10px; color:#999; margin-left:4px; font-weight:400; }
+  .core-wrap { border:1.5px dashed #ef9a9a; border-radius:10px; padding:14px 16px; background:#fff8f8; min-width:640px; }
+  .core-wrap .core-label { font-size:11px; font-weight:700; color:#c62828; margin-bottom:10px; text-align:center; }
+  .core-wrap .arch-row { min-width:0; }
+  .steps2 { display:flex; flex-direction:column; gap:0; margin-top:6px; }
+  .step2 { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #f0f2f5; }
+  .step2:last-child { border-bottom:none; }
+  .step2-num { width:22px; height:22px; border-radius:50%; background:#7c83fd; color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+  .step2-body { font-size:12.5px; color:#555; line-height:1.6; padding-top:2px; }
 </style>
 </head>
 <body>
@@ -103,6 +126,47 @@
     <div class="kicker">ご提案</div>
     <h2>ご提案の全体像</h2>
     <p style="margin-bottom:16px;">上記の課題に対し、以下3つのシステムを組み合わせてご提案します。①は顧客接点の強化、②は集客効率の改善、③は成約後の関係維持を担い、3つが連動することで「集客→来店→成約→リピート」の一連の流れをデータでつなぎます。</p>
+
+    <div class="diagram">
+      <div class="diagram-title">全体構成図</div>
+
+      <div class="arch-row-label">流入・顧客接点</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-plain">見込み客・既存客</div>
+        <div class="arch-box2 accent-plain">6メディア<span class="sub2">カーセンサー・Goo-net等</span></div>
+      </div>
+
+      <div class="arch-vline">↓<span class="note2">問い合わせ／会員登録・利用</span></div>
+
+      <div class="arch-row-label">ご提案システム（3システム連動）</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-b">②反響集約システム<span class="sub2">問い合わせを一元管理</span></div>
+        <div class="arch-box2 accent-app">①スマホアプリ<span class="sub2">会員証・予約・クーポン</span></div>
+        <div class="arch-box2 accent-g">③顧客フォローシステム<span class="sub2">車検/点検リマインド</span></div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">会員・車両・予約データを共有</span></div>
+
+      <div class="core-wrap">
+        <div class="core-label">基幹系システム（既存の会員・車両・予約等のマスタ／別会社保守）</div>
+      </div>
+
+      <div class="arch-vline">↓<span class="note2">対応・来店・成約</span></div>
+
+      <div class="arch-row-label">現場</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-plain">7店舗スタッフ</div>
+      </div>
+    </div>
+
+    <div class="steps2" style="margin-bottom:20px;">
+      <div class="step2"><div class="step2-num">1</div><div class="step2-body">見込み客が6メディアのいずれかから問い合わせ → <b>②反響集約システム</b>が一元的に受付・振り分け</div></div>
+      <div class="step2"><div class="step2-num">2</div><div class="step2-body">店舗スタッフが対応・来店案内 → 来店・商談・成約</div></div>
+      <div class="step2"><div class="step2-num">3</div><div class="step2-body">成約後、車検・点検・保険更新等のタイミングを<b>③顧客フォローシステム</b>が自動検知し、リマインド</div></div>
+      <div class="step2"><div class="step2-num">4</div><div class="step2-body">顧客は<b>①スマホアプリ</b>で会員証提示・予約・クーポン利用を通じて来店</div></div>
+      <div class="step2"><div class="step2-num">5</div><div class="step2-body">会員・車両・予約データは基幹系システムに記録され、①②③が同じデータを参照することで一貫した顧客対応が可能に</div></div>
+    </div>
+
     <div class="sys-grid">
       <div class="sys-card">
         <div class="num">①</div>
@@ -135,6 +199,38 @@
         </ul>
       </div>
     </div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">連携</div>
+    <h2>基幹系システムとの連携</h2>
+    <p style="margin-bottom:16px;">①スマホアプリは、会員・車両・予約等の情報を一から作るのではなく、既存の基幹系システム（会員・車両・予約等のマスタを保有）と連携する前提で設計します。基幹系は別会社様が保守されている想定のため、連携方式（API・ファイル連携等）は今後の協議事項です。</p>
+
+    <div class="diagram">
+      <div class="diagram-title">①アプリ × 基幹系システム 連携イメージ</div>
+
+      <div class="arch-row-label">①スマホアプリ（Orbitが開発）</div>
+      <div class="arch-row">
+        <div class="arch-box2 accent-app">会員情報<span class="sub2">会員証・ランク・ポイント</span></div>
+        <div class="arch-box2 accent-app">車両・整備情報<span class="sub2">車検・点検履歴</span></div>
+        <div class="arch-box2 accent-app">予約情報<span class="sub2">車検/点検/買取査定</span></div>
+        <div class="arch-box2 accent-app">クーポン・来店履歴</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">API連携（方式は今後協議・未確定）</span></div>
+
+      <div class="core-wrap">
+        <div class="core-label">基幹系システム（既存DMS・別会社保守・仕様未確定）</div>
+        <div class="arch-row">
+          <div class="arch-box2 accent-core">会員マスタ</div>
+          <div class="arch-box2 accent-core">車両・車検マスタ</div>
+          <div class="arch-box2 accent-core">予約・空き状況</div>
+          <div class="arch-box2 accent-core">店舗マスタ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">アプリ内のオンボーディング・FAQ・お知らせ等、一部の画面は基幹系との連携なしでアプリ単体で完結します。連携が必要な機能の詳細一覧は、別紙の設計ドキュメントでご確認いただけます。</div>
   </div>
 
   <div class="section">
