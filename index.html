@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ツチヤ自動車様 ご提案書 - 株式会社Orbit</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 980px; margin: 0 auto; padding: 0 24px 60px; }
+  h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+  h2 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  h3 { font-size: 14px; font-weight: 700; color: #444; margin-bottom: 8px; }
+  p { font-size: 13.5px; line-height: 1.8; color: #444; }
+  .section { background: #fff; border-radius: 14px; padding: 28px 30px; margin-bottom: 22px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .kicker { font-size: 11px; font-weight: 700; color: #7c83fd; letter-spacing: 1px; margin-bottom: 6px; }
+
+  /* Global nav */
+  .gnav { background:#1a1a2e; height:44px; display:flex; align-items:center; padding:0 24px; gap:20px; font-size:12px; }
+  .gnav a { color:#aaa; text-decoration:none; opacity:.85; }
+  .gnav a.active { color:#fff; border-bottom:2px solid #7c83fd; padding-bottom:2px; opacity:1; }
+  .gnav .brand { color:#7c83fd; font-weight:700; letter-spacing:.5px; margin-right:8px; }
+
+  /* Cover */
+  .cover { background: linear-gradient(135deg,#1a1a2e,#2d2d4e); color:#fff; padding: 56px 30px 44px; border-radius: 14px; margin: 24px 0 22px; }
+  .cover .kicker { color:#a8b0ff; }
+  .cover h1 { font-size: 28px; margin-bottom:14px; }
+  .cover-meta { display:flex; gap:24px; font-size:12px; color:#c7cbee; margin-top:18px; flex-wrap:wrap; }
+  .cover-meta b { color:#fff; }
+
+  .sys-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sys-card { border:1px solid #eee; border-radius:12px; padding:20px; }
+  .sys-card .num { font-size:11px; font-weight:700; color:#7c83fd; margin-bottom:6px; }
+  .sys-card ul { list-style:none; font-size:12.5px; color:#666; line-height:1.8; margin-top:10px; }
+  .sys-card li:before { content:"・"; color:#7c83fd; }
+
+  .flow { display:flex; align-items:center; gap:6px; font-size:12px; color:#666; flex-wrap:wrap; }
+  .flow .step { background:#f0f2f5; border-radius:8px; padding:9px 14px; white-space:nowrap; }
+  .flow .step.now { background:#7c83fd; color:#fff; font-weight:700; }
+  .flow .arrow { color:#ccc; }
+
+  .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
+  .effect-card { background:#f8f9ff; border:1px solid #dfe2ff; border-radius:10px; padding:16px 18px; }
+  .effect-card .num { font-size:20px; font-weight:700; color:#7c83fd; margin-bottom:4px; }
+  .effect-card .label { font-size:12px; color:#555; }
+
+  table { width:100%; border-collapse: collapse; font-size:13px; }
+  th { text-align:left; font-size:11px; color:#888; padding:8px 10px; border-bottom:2px solid #eee; }
+  td { padding:10px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; line-height:1.6; }
+
+  .info-box { background:#f0f0ff; border:1px solid #c5cae9; border-radius:8px; padding:14px 16px; font-size:12.5px; color:#3949ab; margin-top:14px; line-height:1.7; }
+  .cta { display:inline-block; margin-top:6px; background:#7c83fd; color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; }
+
+  .footer-note { text-align:center; font-size:11px; color:#999; margin-top:30px; }
+</style>
+</head>
+<body>
+
+<div class="gnav">
+  <span class="brand">ツチヤ自動車様 ご提案</span>
+  <a href="index.html" class="active">📄 ご提案書</a>
+  <a href="estimate.html">💰 お見積り</a>
+</div>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="kicker">PROPOSAL</div>
+    <h1>顧客接点強化のための<br>新規システム構築ご提案</h1>
+    <p style="color:#dcdfff;">スマホアプリ・反響集約システム・顧客フォローシステムによる、集客から成約後フォローまでの一体的なDX化</p>
+    <div class="cover-meta">
+      <span>ご提案先：<b>ツチヤ自動車株式会社 御中</b></span>
+      <span>提案者：<b>株式会社Orbit</b></span>
+      <span>日付：<b>2026-08-19</b></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">背景</div>
+    <h2>ご提案の背景（想定される課題）</h2>
+    <p>中古車販売・買取・車検・整備・保険代理店まで一貫したサービスを7店舗で展開されている中で、以下のような課題が一般的に生じやすいと考えています。実際の状況とズレがある場合は、ヒアリングを通じて随時アップデートさせてください。</p>
+    <div class="two-col" style="margin-top:16px;">
+      <div class="effect-card">
+        <div class="label" style="font-weight:700;color:#1a1a2e;margin-bottom:6px;">① 反響が複数媒体に分散</div>
+        <div class="label">カーセンサー・Goo-net等、媒体ごとに管理画面が異なり、反響の状況把握・対応スピードにばらつきが出やすい</div>
+      </div>
+      <div class="effect-card">
+        <div class="label" style="font-weight:700;color:#1a1a2e;margin-bottom:6px;">② 成約後フォローが個人任せ</div>
+        <div class="label">車検・点検・保険更新のタイミングが担当者の記憶や手作業に依存し、フォロー漏れ・再来店機会の損失が起きやすい</div>
+      </div>
+      <div class="effect-card">
+        <div class="label" style="font-weight:700;color:#1a1a2e;margin-bottom:6px;">③ 顧客接点がデジタル化されていない</div>
+        <div class="label">会員証・クーポン・予約が紙やその場対応中心で、来店促進・リピート施策の打ち手が限られる</div>
+      </div>
+      <div class="effect-card">
+        <div class="label" style="font-weight:700;color:#1a1a2e;margin-bottom:6px;">④ 店舗間でのデータ・ノウハウ共有が弱い</div>
+        <div class="label">7店舗の反響・顧客対応状況が一元化されておらず、全社的な打ち手の判断がしづらい</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">ご提案</div>
+    <h2>ご提案の全体像</h2>
+    <p style="margin-bottom:16px;">上記の課題に対し、以下3つのシステムを組み合わせてご提案します。①は顧客接点の強化、②は集客効率の改善、③は成約後の関係維持を担い、3つが連動することで「集客→来店→成約→リピート」の一連の流れをデータでつなぎます。</p>
+    <div class="sys-grid">
+      <div class="sys-card">
+        <div class="num">①</div>
+        <h3>スマホアプリ</h3>
+        <p style="font-size:12.5px;">会員証・車検/点検予約・クーポン配信などを備えた、オートバックス型の顧客向けアプリ。</p>
+        <ul>
+          <li>デジタル会員証</li>
+          <li>車検・点検・買取査定の予約</li>
+          <li>クーポン配信・来店促進</li>
+        </ul>
+      </div>
+      <div class="sys-card">
+        <div class="num">②</div>
+        <h3>反響集約システム</h3>
+        <p style="font-size:12.5px;">カーセンサー・Goo-net等、複数媒体からの問い合わせを一元管理し、対応スピードを改善。</p>
+        <ul>
+          <li>反響の一元収集・振り分け</li>
+          <li>対応状況の可視化</li>
+          <li>媒体別の効果測定</li>
+        </ul>
+      </div>
+      <div class="sys-card">
+        <div class="num">③</div>
+        <h3>顧客フォローシステム</h3>
+        <p style="font-size:12.5px;">車検・点検・保険更新等のタイミングを自動で捉え、成約後の関係維持・再来店を後押し。</p>
+        <ul>
+          <li>車検/点検リマインド</li>
+          <li>担当営業のフォロー管理</li>
+          <li>再来店・紹介の促進</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">効果</div>
+    <h2>導入によって期待される効果（仮説）</h2>
+    <p style="margin-bottom:14px;">具体的な数値目標はヒアリングを通じて店舗様の実態に合わせて設計しますが、一般的に想定される効果の方向性は以下の通りです。</p>
+    <div class="two-col">
+      <div class="effect-card"><div class="num">対応スピード ↑</div><div class="label">反響の一元管理により、一次対応までの時間を短縮</div></div>
+      <div class="effect-card"><div class="num">再来店率 ↑</div><div class="label">車検・点検リマインドの自動化により、フォロー漏れを防止</div></div>
+      <div class="effect-card"><div class="num">来店促進 ↑</div><div class="label">アプリのクーポン・会員証で来店のきっかけを増加</div></div>
+      <div class="effect-card"><div class="num">媒体費 最適化</div><div class="label">媒体別の反響数・成約率の可視化で予算配分を見直し</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">進め方</div>
+    <h2>進め方・スケジュール</h2>
+    <p style="margin-bottom:16px;">要件・画面・データ設計などの設計ドキュメントを一通り仕上げてから実装に着手する方式で進めます。手戻りを防ぎ、開発開始前に仕様の認識を合わせられるのが利点です。</p>
+    <div class="flow">
+      <div class="step now">ヒアリング</div>
+      <span class="arrow">→</span>
+      <div class="step">要件定義</div>
+      <span class="arrow">→</span>
+      <div class="step">画面設計・データ設計</div>
+      <span class="arrow">→</span>
+      <div class="step">開発</div>
+      <span class="arrow">→</span>
+      <div class="step">テスト</div>
+      <span class="arrow">→</span>
+      <div class="step">リリース</div>
+      <span class="arrow">→</span>
+      <div class="step">運用・改善</div>
+    </div>
+    <div class="info-box">①②③は並行して要件整理が可能です。優先度や予算に応じて、いずれかから先行着手する段階リリースにも対応します。</div>
+  </div>
+
+  <div class="section">
+    <div class="kicker">お見積り</div>
+    <h2>お見積りについて</h2>
+    <p>お見積りはシステム単位（①②③それぞれ）でご用意しています。金額は要件確定前の概算（ROM）のため、ヒアリング後に精度を上げてまいります。</p>
+    <a class="cta" href="estimate.html">→ お見積りを見る</a>
+  </div>
+
+  <div class="section">
+    <div class="kicker">会社概要</div>
+    <h2>株式会社Orbit について</h2>
+    <p>東京都渋谷区に拠点を置くデジタルクリエイティブエージェンシー。「テクノロジーとクリエイティビティで感動を届ける」をミッションに、業務効率化・新規プロダクト開発支援・プロジェクト管理・品質保証・ブランディング支援まで一貫してご支援しています。</p>
+    <table style="margin-top:14px;">
+      <tr><th style="width:120px;">所在地</th><td>東京都渋谷区</td></tr>
+      <tr><th>設立</th><td>2025年9月</td></tr>
+      <tr><th>Webサイト</th><td><a href="https://www.obt-llc.com/" target="_blank" style="color:#7c83fd;">https://www.obt-llc.com/</a></td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">ツチヤ自動車株式会社様 ご提案書（2026-08-19作成）／株式会社Orbit</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お見積り - ツチヤ自動車様 - 株式会社Orbit</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px 60px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  .meta { font-size: 12px; color: #999; margin-bottom: 20px; display:flex; gap:16px; }
+  .section { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .info-box { background:#f0f0ff; border:1px solid #c5cae9; border-radius:8px; padding:12px 16px; font-size:12.5px; color:#3949ab; margin-top:12px; line-height:1.7; }
+  .warn-box { background:#fff8e1; border:1px solid #ffcc80; border-radius:8px; padding:12px 16px; font-size:12.5px; color:#e65100; margin-top:12px; line-height:1.7; }
+
+  .gnav { background:#1a1a2e; height:44px; display:flex; align-items:center; padding:0 24px; gap:20px; font-size:12px; margin:0 auto 0; max-width:100%; }
+  .gnav a { color:#aaa; text-decoration:none; opacity:.85; }
+  .gnav a.active { color:#fff; border-bottom:2px solid #7c83fd; padding-bottom:2px; opacity:1; }
+  .gnav .brand { color:#7c83fd; font-weight:700; letter-spacing:.5px; margin-right:8px; }
+
+  .rate-box { display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:#f7f7fd; border:1px solid #dfe2ff; border-radius:10px; padding:16px 18px; }
+  .rate-box label { font-size:13px; font-weight:700; color:#1a1a2e; }
+  .rate-box input { font-size:16px; font-weight:700; color:#1a1a2e; border:1px solid #ccd; border-radius:8px; padding:8px 12px; width:160px; }
+  .rate-box .sub { font-size:11px; color:#888; }
+  .rate-box .dayrate { font-size:12px; color:#7c83fd; font-weight:700; }
+
+  table { width:100%; border-collapse: collapse; font-size:13px; }
+  th { text-align:left; font-size:11px; color:#888; padding:10px 10px; border-bottom:2px solid #eee; }
+  td { padding:12px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; line-height:1.6; }
+  .sys-name { font-weight:700; }
+  .sys-desc { font-size:11.5px; color:#888; margin-top:2px; }
+  .amount { font-weight:700; color:#1a1a2e; white-space:nowrap; }
+  .amount.empty { color:#bbb; font-weight:400; }
+  tr.total-row td { border-top:2px solid #1a1a2e; border-bottom:none; font-weight:700; font-size:14px; padding-top:16px; }
+  tr.tax-row td { border-bottom:none; font-size:12.5px; color:#666; padding-top:6px; padding-bottom:6px; }
+</style>
+</head>
+<body>
+
+<div class="gnav">
+  <span class="brand">ツチヤ自動車様 ご提案</span>
+  <a href="index.html">📄 ご提案書</a>
+  <a href="estimate.html" class="active">💰 お見積り</a>
+</div>
+
+<div class="page">
+  <h1>お見積り（システム単位）</h1>
+  <div class="meta">
+    <span>v0.1</span>
+    <span>2026-08-19</span>
+    <span>要件確定前の概算（ROM）</span>
+  </div>
+
+  <div class="section">
+    <h2>単価の入力</h2>
+    <div class="rate-box">
+      <label for="rate">人月単価</label>
+      <input type="text" id="rate" inputmode="numeric" placeholder="例: 800000" oninput="calc()">
+      <span class="sub">円 / 人月（20人日換算）</span>
+      <span class="dayrate" id="dayrate"></span>
+    </div>
+    <div class="info-box">人月単価を入力すると、下表の金額が自動計算されます。まだ数字を入れていない間は工数（人日・人月）のみ表示されます。</div>
+  </div>
+
+  <div class="section">
+    <h2>システム別お見積り</h2>
+    <div style="overflow-x:auto;">
+    <table>
+      <tr><th>システム</th><th>工数（人日）</th><th>工数（人月）</th><th>金額（税抜・概算）</th></tr>
+
+      <tr>
+        <td><div class="sys-name">①スマホアプリ</div><div class="sys-desc">会員証・予約・クーポン等（オートバックス型）</div></td>
+        <td>120〜170人日</td>
+        <td>6.0〜8.5人月</td>
+        <td class="amount empty" id="amount-app">単価未入力</td>
+      </tr>
+      <tr>
+        <td><div class="sys-name">②反響集約システム</div><div class="sys-desc">6媒体の問い合わせ一元管理</div></td>
+        <td>80〜120人日</td>
+        <td>4.0〜6.0人月</td>
+        <td class="amount empty" id="amount-inquiry">単価未入力</td>
+      </tr>
+      <tr>
+        <td><div class="sys-name">③顧客フォローシステム</div><div class="sys-desc">車検/点検/保険更新リマインド・再来店促進</div></td>
+        <td>80〜110人日</td>
+        <td>4.0〜5.5人月</td>
+        <td class="amount empty" id="amount-followup">単価未入力</td>
+      </tr>
+
+      <tr class="total-row">
+        <td>合計（税抜）</td>
+        <td>280〜400人日</td>
+        <td>14.0〜20.0人月</td>
+        <td class="amount empty" id="amount-total">単価未入力</td>
+      </tr>
+      <tr class="tax-row">
+        <td colspan="3">消費税（10%）</td>
+        <td class="amount empty" id="amount-tax">-</td>
+      </tr>
+      <tr class="tax-row">
+        <td colspan="3" style="font-weight:700;color:#1a1a2e;">合計（税込）</td>
+        <td class="amount empty" id="amount-total-tax">-</td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    上記はヒアリング未実施の段階での概算（ROM）です。要件確定後に±30%程度変動する可能性があります。主な変動要因：①iOS/Android両方リリースするか・機能範囲、②各媒体の連携方式（API有無）、③既存システムとの連携パターン（新規構築 or 既存システム参照）。詳細はご提案書内の各システム説明、および設計ドキュメント（別紙）をご参照ください。
+  </div>
+
+</div>
+
+<script>
+function formatYen(n) {
+  return '¥' + Math.round(n).toLocaleString('ja-JP');
+}
+function calc() {
+  const rateInput = document.getElementById('rate').value.replace(/,/g, '');
+  const rate = parseFloat(rateInput);
+  const systems = [
+    { id: 'app',      low: 120, high: 170 },
+    { id: 'inquiry',  low: 80,  high: 120 },
+    { id: 'followup', low: 80,  high: 110 },
+  ];
+
+  if (!rate || rate <= 0) {
+    document.getElementById('dayrate').textContent = '';
+    systems.forEach(s => {
+      const el = document.getElementById('amount-' + s.id);
+      el.textContent = '単価未入力';
+      el.classList.add('empty');
+    });
+    ['amount-total','amount-tax','amount-total-tax'].forEach(id => {
+      const el = document.getElementById(id);
+      el.textContent = id === 'amount-total' ? '単価未入力' : '-';
+      el.classList.add('empty');
+    });
+    return;
+  }
+
+  const dayRate = rate / 20;
+  document.getElementById('dayrate').textContent = '（日額 ' + formatYen(dayRate) + '）';
+
+  let totalLow = 0, totalHigh = 0;
+  systems.forEach(s => {
+    const low = s.low * dayRate;
+    const high = s.high * dayRate;
+    totalLow += low; totalHigh += high;
+    const el = document.getElementById('amount-' + s.id);
+    el.textContent = formatYen(low) + ' 〜 ' + formatYen(high);
+    el.classList.remove('empty');
+  });
+
+  const totalEl = document.getElementById('amount-total');
+  totalEl.textContent = formatYen(totalLow) + ' 〜 ' + formatYen(totalHigh);
+  totalEl.classList.remove('empty');
+
+  const taxLow = totalLow * 0.1, taxHigh = totalHigh * 0.1;
+  const taxEl = document.getElementById('amount-tax');
+  taxEl.textContent = formatYen(taxLow) + ' 〜 ' + formatYen(taxHigh);
+  taxEl.classList.remove('empty');
+
+  const totalTaxEl = document.getElementById('amount-total-tax');
+  totalTaxEl.textContent = formatYen(totalLow * 1.1) + ' 〜 ' + formatYen(totalHigh * 1.1);
+  totalTaxEl.classList.remove('empty');
+}
+calc();
+</script>
+
+</body>
+</html>
