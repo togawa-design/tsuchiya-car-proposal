@@ -52,7 +52,7 @@
   .warn-box { background:#fff8e1; border:1px solid #ffcc80; border-radius:8px; padding:14px 16px; font-size:12.5px; color:#e65100; margin-top:14px; line-height:1.7; }
   .cta { display:inline-block; margin-top:6px; background:#7c83fd; color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; }
 
-  .footer-note { text-align:center; font-size:11px; color:#999; margin-top:30px; }
+  .footer-note { text-align:center; font-size:11px; color:#999; margin-top:16px; break-before: avoid; page-break-before: avoid; }
 
   /* Diagrams */
   .diagram { background:#f7f7fb; border:1px solid #e4e4f5; border-radius:12px; padding:28px 24px 22px; margin-bottom:18px; overflow-x:auto; }
@@ -68,6 +68,21 @@
   .arch-box2.accent-plain{ border-color:#ccc; background:#fafafa; color:#666; }
   .arch-box2.accent-p    { border-color:#ab47bc; background:#faf3fb; color:#7b1fa2; }
   .arch-box2.accent-o    { border-color:#ffa726; background:#fff8f0; color:#e65100; }
+  .arch-box2.accent-mid  { border-color:#607d8b; background:#eceff1; color:#37474f; }
+  .mid-wrap { border:1.5px solid #90a4ae; border-radius:10px; padding:14px 16px; background:#f4f6f7; min-width:640px; }
+  .mid-wrap .mid-label { font-size:11px; font-weight:700; color:#37474f; margin-bottom:4px; text-align:center; }
+  .mid-wrap .mid-sub { font-size:10px; color:#78909c; text-align:center; margin-bottom:10px; }
+
+  @media print {
+    .cover, .section, .diagram, .sys-card, .effect-card, .info-box, .warn-box, .core-wrap, .mid-wrap, .step2 {
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    h2, h3 { break-after: avoid; page-break-after: avoid; }
+    /* 印刷幅を超えて横スクロール・クリップされるのを防ぐため、図は折り返し可にする */
+    .diagram, .core-wrap, .mid-wrap, .arch-row, .arch-vline { min-width: 0 !important; overflow-x: visible !important; }
+    .arch-row { flex-wrap: wrap; }
+    .arch-box2 { min-width: 120px; flex: 1 1 120px; }
+  }
   .sys-grid.cols2 { grid-template-columns: repeat(2, 1fr); }
   .new-tag { display:inline-block; background:#ffa726; color:#fff; font-size:10px; font-weight:700; border-radius:8px; padding:2px 8px; margin-left:8px; vertical-align:middle; }
   .arch-vline { text-align:center; color:#bbb; font-size:15px; margin:6px 0; min-width:640px; }
@@ -86,8 +101,6 @@
 
 <div class="gnav">
   <span class="brand">ツチヤ自動車様 ご提案</span>
-  <a href="index.html" class="active">📄 ご提案書</a>
-  <a href="estimate.html">💰 お見積り</a>
 </div>
 
 <div class="page">
@@ -130,7 +143,7 @@
   <div class="section">
     <div class="kicker">ご提案</div>
     <h2>ご提案の全体像</h2>
-    <p style="margin-bottom:16px;">上記の課題に対し、以下3つのシステムを組み合わせてご提案します。①は顧客接点の強化、②は集客効率の改善、③は成約後の関係維持を担い、3つが連動することで「集客→来店→成約→リピート」の一連の流れをデータでつなぎます。</p>
+    <p style="margin-bottom:16px;">上記の課題に対し、以下3つのシステムを組み合わせてご提案します。①は顧客接点の強化、②は集客効率の改善、③は成約後の関係維持を担い、3つが連動することで「集客→来店→成約→リピート」の一連の流れをデータでつなぎます。①②③は「共通データ基盤」という土台を通じて情報を共有し、その基盤が既存の基幹系システムと必要な範囲で連携する構成にします。</p>
 
     <div class="diagram">
       <div class="diagram-title">全体構成図</div>
@@ -150,7 +163,14 @@
         <div class="arch-box2 accent-g">③顧客フォローシステム<span class="sub2">車検/点検リマインド</span></div>
       </div>
 
-      <div class="arch-vline">↕<span class="note2">会員・車両・予約データを共有</span></div>
+      <div class="arch-vline">↕<span class="note2">会員・車両・予約・案件データを共有</span></div>
+
+      <div class="mid-wrap">
+        <div class="mid-label">共通データ基盤</div>
+        <div class="mid-sub">Orbitが新規構築／①②③④が参照する土台</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">連携方式は今後協議・未確定</span></div>
 
       <div class="core-wrap">
         <div class="core-label">基幹系システム（既存の会員・車両・予約等のマスタ／別会社保守）</div>
@@ -209,7 +229,7 @@
   <div class="section">
     <div class="kicker">連携</div>
     <h2>各システムと基幹系システムとの連携</h2>
-    <p style="margin-bottom:16px;">①②③はいずれも、会員・車両・予約・顧客等の情報を一から作るのではなく、既存の基幹系システム（会員・車両・予約等のマスタを保有）と連携する前提で設計します。基幹系は別会社様が保守されている想定のため、連携方式（API・ファイル連携等）は今後の協議事項です。</p>
+    <p style="margin-bottom:16px;">①②③は、それぞれが直接基幹系とやり取りするのではなく、Orbitが新規構築する「共通データ基盤」を介して情報を共有します。共通データ基盤は、会員・車両・予約・顧客等の情報を一から作るのではなく、既存の基幹系システム（会員・車両・予約等のマスタを保有）と必要な範囲で連携する前提で設計します。基幹系は別会社様が保守されている想定のため、連携方式（API・ファイル連携等）は今後の協議事項です。</p>
 
     <h3 style="margin-top:22px;">①スマホアプリ</h3>
     <div class="diagram">
@@ -223,7 +243,14 @@
         <div class="arch-box2 accent-app">クーポン・来店履歴</div>
       </div>
 
-      <div class="arch-vline">↕<span class="note2">API連携（方式は今後協議・未確定）</span></div>
+      <div class="arch-vline">↕<span class="note2">API呼び出し</span></div>
+
+      <div class="mid-wrap">
+        <div class="mid-label">共通データ基盤</div>
+        <div class="mid-sub">Orbitが新規構築／②③④とも共有</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">連携方式は今後協議・未確定</span></div>
 
       <div class="core-wrap">
         <div class="core-label">基幹系システム（既存DMS・別会社保守・仕様未確定）</div>
@@ -248,7 +275,14 @@
         <div class="arch-box2 accent-b">対応履歴の記録<span class="sub2">来店・成約・失注</span></div>
       </div>
 
-      <div class="arch-vline">↕<span class="note2">API連携（方式は今後協議・未確定）</span></div>
+      <div class="arch-vline">↕<span class="note2">API呼び出し</span></div>
+
+      <div class="mid-wrap">
+        <div class="mid-label">共通データ基盤</div>
+        <div class="mid-sub">①③④とも共有（会員照合・店舗情報等を参照）</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">連携方式は今後協議・未確定</span></div>
 
       <div class="core-wrap">
         <div class="core-label">基幹系システム（既存DMS・別会社保守・仕様未確定）</div>
@@ -272,7 +306,14 @@
         <div class="arch-box2 accent-g">フォロー実施結果の記録</div>
       </div>
 
-      <div class="arch-vline">↕<span class="note2">API連携（方式は今後協議・未確定）</span></div>
+      <div class="arch-vline">↕<span class="note2">API呼び出し</span></div>
+
+      <div class="mid-wrap">
+        <div class="mid-label">共通データ基盤</div>
+        <div class="mid-sub">①②④とも共有（顧客・車両・案件情報等を参照）</div>
+      </div>
+
+      <div class="arch-vline">↕<span class="note2">連携方式は今後協議・未確定</span></div>
 
       <div class="core-wrap">
         <div class="core-label">基幹系システム（既存DMS・別会社保守・仕様未確定）</div>
@@ -290,27 +331,28 @@
 
   <div class="section">
     <div class="kicker">追加ご提案</div>
-    <h2>④営業力強化・評価システム<span class="new-tag">NEW</span></h2>
-    <p style="margin-bottom:16px;">①〜③（顧客接点・反響・フォロー）に加え、営業スタッフの育成・評価を強化する4つ目のシステムとしてご提案します。amptalk coach（<a href="https://amptalk.co.jp/product/ai-roleplay" target="_blank" style="color:#7c83fd;">https://amptalk.co.jp/product/ai-roleplay</a>）のようなAIロープレツールを参考に、ツチヤ自動車様の業務（新車/中古車商談・買取査定・車検/保険提案等）に合わせたシナリオで営業力を標準化し、その練習成果を人事評価に接続します。①〜③は顧客・案件が対象ですが、④は営業スタッフ本人が対象という点で毛色が異なるため、③とは別システムとして切り出しています。CRM・AIロープレと評価・スタッフ管理は密接に連動するため、④の中の2モジュールとして1つのシステムにまとめます。</p>
+    <h2>④営業力強化・評価システム</h2>
+    <p style="margin-bottom:16px;">①〜③（顧客接点・反響・フォロー）に加え、営業スタッフの育成・評価を強化する4つ目のシステムとしてご提案します。amptalk coach（<a href="https://amptalk.co.jp/product/ai-roleplay" target="_blank" style="color:#7c83fd;">https://amptalk.co.jp/product/ai-roleplay</a>）のようなAIロープレツールを参考に、ツチヤ自動車様の業務（新車/中古車商談・買取査定・車検/保険提案等）に合わせたシナリオで営業力を標準化し、その練習成果を人事評価に接続します。①〜③は顧客・案件が対象ですが、④は営業スタッフ本人が対象という点で毛色が異なるため、③とは別システムとして切り出しています。AIロープレ・評価・スタッフ管理は密接に連動するため④の中の1モジュール（B）にまとめ、商談・案件管理（A）は②③のデータを参照するビューとして分けています。</p>
 
     <div class="sys-grid cols2" style="margin-bottom:18px;">
       <div class="sys-card">
         <div class="num">④-A</div>
-        <h3>モジュールA：営業CRM＋AIロープレ</h3>
-        <p style="font-size:12.5px;">AIとの商談シミュレーションによる営業トレーニングと、商談・案件管理を行うCRM機能。</p>
+        <h3>モジュールA：営業CRM</h3>
+        <p style="font-size:12.5px;">②反響集約・③顧客フォローが持つ案件・対応履歴データを参照する、商談・案件管理ビュー。</p>
         <ul>
-          <li>AIロープレ（新車/中古車商談・査定・保険提案等のシナリオ）</li>
-          <li>AIによる自動評価・スコアリング</li>
-          <li>AIシナリオ自動作成（お題の生成）</li>
           <li>商談・案件の登録・進捗管理（CRM）</li>
-          <li>個人・店舗別トレーニング状況のダッシュボード</li>
+          <li>ロープレとの紐付け（対象案件からモジュールBのAIロープレを呼び出し）</li>
         </ul>
       </div>
       <div class="sys-card">
         <div class="num">④-B</div>
-        <h3>モジュールB：評価制度＋社内スタッフ管理</h3>
-        <p style="font-size:12.5px;">モジュールAのロープレ・商談実績を人事評価に接続し、公平で継続的な育成サイクルを支える基盤。</p>
+        <h3>モジュールB：AIロープレ＋評価制度＋社内スタッフ管理</h3>
+        <p style="font-size:12.5px;">AIとの商談シミュレーションによる営業トレーニングと、その成果を人事評価に接続する、営業スタッフ育成の基盤。</p>
         <ul>
+          <li>AIロープレ（新車/中古車商談・査定・保険提案等のシナリオ）</li>
+          <li>AIによる自動評価・スコアリング</li>
+          <li>AIシナリオ自動作成（お題の生成）</li>
+          <li>個人・店舗別トレーニング状況のダッシュボード</li>
           <li>社内スタッフマスタ（氏名・所属店舗・役職・権限）</li>
           <li>評価基準・評価項目の設定</li>
           <li>AIスコア＋上長評価のハイブリッド評価フロー</li>
@@ -333,8 +375,8 @@
       <div class="core-wrap" style="border-color:#ab47bc; background:#faf3fb;">
         <div class="core-label" style="color:#7b1fa2;">④営業力強化・評価システム（今回の追加ご提案・1システム）</div>
         <div class="arch-row">
-          <div class="arch-box2 accent-p">A：AIロープレ<span class="sub2">シナリオ・自動評価</span></div>
           <div class="arch-box2 accent-p">A：営業CRM<span class="sub2">商談・案件管理</span></div>
+          <div class="arch-box2 accent-o">B：AIロープレ<span class="sub2">シナリオ・自動評価</span></div>
           <div class="arch-box2 accent-o">B：評価制度<span class="sub2">評価基準・評価フロー</span></div>
           <div class="arch-box2 accent-o">B：スタッフ管理<span class="sub2">社内スタッフマスタ</span></div>
         </div>
@@ -351,7 +393,7 @@
     </div>
 
     <div class="info-box">④のモジュールA（営業CRM）は②反響集約・③顧客フォローが持つ「案件・対応履歴」データと連携することで、商談内容とAIロープレでの練習内容を結びつけられます。モジュールBの社内スタッフマスタは、既存の人事システムがあればそちらと連携するか、新規に構築するかをヒアリングで確認します。</div>
-    <div class="warn-box" style="margin-top:12px;">④は①〜③とは別システム・別軸の追加ご提案のため、お見積り・スケジュールは別枠でご用意します（現行のestimate.htmlは①〜③のみが対象です）。</div>
+    <div class="info-box" style="margin-top:12px;">④は①〜③とは対象（顧客・案件 vs 営業スタッフ本人）が異なる別システムですが、お見積りは①〜④まとめてご確認いただけます。</div>
   </div>
 
   <div class="section">
@@ -391,16 +433,15 @@
   <div class="section">
     <div class="kicker">お見積り</div>
     <h2>お見積りについて</h2>
-    <p>お見積りはシステム単位（①②③それぞれ）でご用意しています。金額は要件確定前の概算（ROM）のため、ヒアリング後に精度を上げてまいります。</p>
-    <a class="cta" href="estimate.html">→ お見積りを見る</a>
+    <p>お見積りはシステム単位（①②③④それぞれ）でご用意しています。金額は要件確定前の概算（ROM）のため、ヒアリング後に精度を上げてまいります。</p>
   </div>
 
   <div class="section">
     <div class="kicker">会社概要</div>
     <h2>オービット合同会社について</h2>
-    <p>東京都渋谷区に拠点を置くデジタルクリエイティブエージェンシー。「テクノロジーとクリエイティビティで感動を届ける」をミッションに、業務効率化・新規プロダクト開発支援・プロジェクト管理・品質保証・ブランディング支援まで一貫してご支援しています。</p>
+    <p>東京都渋谷区に拠点を置くデジタルクリエイティブエージェンシー。「テクノロジーとクリエイティビティの力で、すべての人に感動を届ける」をミッションに、業務効率化・COO代行・新規プロダクト開発支援・プロジェクト管理・品質保証・ブランディング支援まで一貫してご支援しています。</p>
     <table style="margin-top:14px;">
-      <tr><th style="width:120px;">所在地</th><td>東京都渋谷区</td></tr>
+      <tr><th style="width:120px;">所在地</th><td>〒150-0043 東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F-C</td></tr>
       <tr><th>設立</th><td>2025年9月</td></tr>
       <tr><th>Webサイト</th><td><a href="https://www.obt-llc.com/" target="_blank" style="color:#7c83fd;">https://www.obt-llc.com/</a></td></tr>
     </table>

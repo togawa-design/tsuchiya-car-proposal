@@ -7,7 +7,7 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
-  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px 60px; }
+  .page { max-width: 900px; margin: 0 auto; padding: 24px 24px 20px; }
   h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
   h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
   .meta { font-size: 12px; color: #999; margin-bottom: 20px; display:flex; gap:16px; }
@@ -20,177 +20,99 @@
   .gnav a.active { color:#fff; border-bottom:2px solid #7c83fd; padding-bottom:2px; opacity:1; }
   .gnav .brand { color:#7c83fd; font-weight:700; letter-spacing:.5px; margin-right:8px; }
 
-  .rate-box { display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:#f7f7fd; border:1px solid #dfe2ff; border-radius:10px; padding:16px 18px; }
-  .rate-box label { font-size:13px; font-weight:700; color:#1a1a2e; }
-  .rate-box input { font-size:16px; font-weight:700; color:#1a1a2e; border:1px solid #ccd; border-radius:8px; padding:8px 12px; width:160px; }
-  .rate-box .sub { font-size:11px; color:#888; }
-  .rate-box .dayrate { font-size:12px; color:#7c83fd; font-weight:700; }
-
   table { width:100%; border-collapse: collapse; font-size:13px; }
   th { text-align:left; font-size:11px; color:#888; padding:10px 10px; border-bottom:2px solid #eee; }
-  td { padding:12px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; line-height:1.6; }
+  td { padding:9px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; line-height:1.5; }
   .sys-name { font-weight:700; }
   .sys-desc { font-size:11.5px; color:#888; margin-top:2px; }
   .amount { font-weight:700; color:#1a1a2e; white-space:nowrap; }
-  .amount.empty { color:#bbb; font-weight:400; }
-  tr.total-row td { border-top:2px solid #1a1a2e; border-bottom:none; font-weight:700; font-size:14px; padding-top:16px; }
-  tr.tax-row td { border-bottom:none; font-size:12.5px; color:#666; padding-top:6px; padding-bottom:6px; }
+  tr.total-row td { border-top:2px solid #1a1a2e; border-bottom:none; font-weight:700; font-size:14px; padding-top:12px; padding-bottom:8px; }
+  tr.tax-row td { border-bottom:none; font-size:12.5px; color:#666; padding-top:4px; padding-bottom:4px; }
 </style>
 </head>
 <body>
 
 <div class="gnav">
   <span class="brand">ツチヤ自動車様 ご提案</span>
-  <a href="index.html">📄 ご提案書</a>
-  <a href="estimate.html" class="active">💰 お見積り</a>
 </div>
 
 <div class="page">
   <h1>お見積り（システム単位）</h1>
   <div class="meta">
-    <span>v0.2</span>
-    <span>2026-08-19</span>
-    <span>要件確定前の概算（ROM）</span>
-  </div>
-
-  <div class="section">
-    <h2>単価の入力</h2>
-    <div class="rate-box">
-      <label for="rate">人月単価</label>
-      <input type="text" id="rate" inputmode="numeric" placeholder="例: 800000" oninput="calc()">
-      <span class="sub">円 / 人月（20人日換算）</span>
-      <span class="dayrate" id="dayrate"></span>
-    </div>
-    <div class="info-box">人月単価を入力すると、下表の金額が自動計算されます。まだ数字を入れていない間は工数（人日・人月）のみ表示されます。</div>
+    <span>v0.4</span>
+    <span>2026-09-01</span>
+    <span>要件確定前の概算（ROM・上限金額でご案内）</span>
   </div>
 
   <div class="section">
     <h2>システム別お見積り</h2>
     <div style="overflow-x:auto;">
     <table>
-      <tr><th>システム</th><th>工数（人日）</th><th>工数（人月）</th><th>金額（税抜・概算）</th></tr>
+      <tr><th>システム</th><th>工数（人日）</th><th>工数（人月）</th><th>金額（税抜・上限）</th></tr>
 
       <tr>
+        <td><div class="sys-name">共通データ基盤</div><div class="sys-desc">認証・権限管理（RBAC）・操作履歴（監査ログ）・基盤構築・基幹系連携アダプタの枠組み。①〜④共通で1回のみ必要</div></td>
+        <td>100人日</td>
+        <td>5.0人月</td>
+        <td class="amount">¥5,500,000</td>
+      </tr>
+      <tr>
         <td><div class="sys-name">①スマホアプリ（開発）</div><div class="sys-desc">会員証・予約・クーポン等（オートバックス型）／デザイン費は下記に別掲</div></td>
-        <td>105〜150人日</td>
-        <td>5.25〜7.5人月</td>
-        <td class="amount empty" id="amount-app">単価未入力</td>
+        <td>120人日</td>
+        <td>6.0人月</td>
+        <td class="amount">¥6,600,000</td>
       </tr>
       <tr>
         <td><div class="sys-name">①スマホアプリ（デザイン費・確定額）</div><div class="sys-desc">株式会社プラスニド・デザイン様お見積り（46ページ・iOS+Android）</div></td>
         <td>—</td>
         <td>—</td>
-        <td class="amount" id="amount-app-design">¥2,579,500</td>
+        <td class="amount">¥2,579,500</td>
       </tr>
       <tr>
         <td><div class="sys-name">②反響集約システム</div><div class="sys-desc">6媒体の問い合わせ一元管理</div></td>
-        <td>80〜120人日</td>
-        <td>4.0〜6.0人月</td>
-        <td class="amount empty" id="amount-inquiry">単価未入力</td>
+        <td>100人日</td>
+        <td>5.0人月</td>
+        <td class="amount">¥5,500,000</td>
       </tr>
       <tr>
         <td><div class="sys-name">③顧客フォローシステム</div><div class="sys-desc">車検/点検/保険更新リマインド・再来店促進</div></td>
-        <td>80〜110人日</td>
-        <td>4.0〜5.5人月</td>
-        <td class="amount empty" id="amount-followup">単価未入力</td>
+        <td>95人日</td>
+        <td>4.75人月</td>
+        <td class="amount">¥5,225,000</td>
+      </tr>
+      <tr>
+        <td><div class="sys-name">④A 営業CRM</div><div class="sys-desc">②の案件・対応履歴データを参照する商談・案件管理ビュー（④A独自の案件マスタは持たない）</div></td>
+        <td>15人日</td>
+        <td>0.75人月</td>
+        <td class="amount">¥825,000</td>
+      </tr>
+      <tr>
+        <td><div class="sys-name">④B AIロープレ＋評価制度＋社内スタッフ管理</div><div class="sys-desc">AIロープレ（対話・自動評価・シナリオ生成）、トレーニングダッシュボード、評価制度、スタッフ管理、育成計画</div></td>
+        <td>150人日</td>
+        <td>7.5人月</td>
+        <td class="amount">¥8,250,000</td>
       </tr>
 
       <tr class="total-row">
         <td>合計（税抜）</td>
-        <td>265〜380人日<span style="font-weight:400;font-size:11px;color:#999;">＋デザイン費確定額</span></td>
-        <td>13.25〜19人月</td>
-        <td class="amount empty" id="amount-total">単価未入力</td>
+        <td>580人日<span style="font-weight:400;font-size:11px;color:#999;">＋デザイン費確定額</span></td>
+        <td>29.0人月</td>
+        <td class="amount">¥34,479,500</td>
       </tr>
       <tr class="tax-row">
         <td colspan="3">消費税（10%）</td>
-        <td class="amount empty" id="amount-tax">-</td>
+        <td class="amount">¥3,447,950</td>
       </tr>
       <tr class="tax-row">
         <td colspan="3" style="font-weight:700;color:#1a1a2e;">合計（税込）</td>
-        <td class="amount empty" id="amount-total-tax">-</td>
+        <td class="amount">¥37,927,450</td>
       </tr>
     </table>
     </div>
   </div>
 
-  <div class="info-box">
-    ①のデザイン費（¥2,579,500・税抜）は株式会社プラスニド・デザイン様から受領した実際のお見積り金額で、人月単価によらず確定です。②③のデザイン工数は現時点では各システムの工数レンジに含めたROMのままで、実際の見積りは受領していません。
-  </div>
-
-  <div class="warn-box">
-    人日ベースの項目はヒアリング未実施の段階での概算（ROM）です。要件確定後に±30%程度変動する可能性があります。主な変動要因：①iOS/Android両方リリースするか・機能範囲、②各媒体の連携方式（API有無）、③既存システムとの連携パターン（新規構築 or 既存システム参照）。基幹系との連携方式が確定していないため、連携が困難な場合は独自マスタ構築等の追加工数が発生する可能性があります。詳細はご提案書内の各システム説明、および設計ドキュメント（別紙）をご参照ください。
-  </div>
-
-  <div class="info-box">
-    ④営業力強化・評価システムは①〜③とは別システム・別軸の追加ご提案のため、本見積りの対象外です。お見積り・スケジュールは別途ご用意します。
-  </div>
 
 </div>
-
-<script>
-function formatYen(n) {
-  return '¥' + Math.round(n).toLocaleString('ja-JP');
-}
-const DESIGN_FEE_EXTAX = 2579500; // ①アプリ デザイン費（株式会社プラスニド・デザイン様お見積り・確定額）
-
-function calc() {
-  const rateInput = document.getElementById('rate').value.replace(/,/g, '');
-  const rate = parseFloat(rateInput);
-  const systems = [
-    { id: 'app',      low: 105, high: 150 },
-    { id: 'inquiry',  low: 80,  high: 120 },
-    { id: 'followup', low: 80,  high: 110 },
-  ];
-
-  // デザイン費は単価に関わらず常に確定額を表示
-  document.getElementById('amount-app-design').textContent = formatYen(DESIGN_FEE_EXTAX);
-
-  if (!rate || rate <= 0) {
-    document.getElementById('dayrate').textContent = '';
-    systems.forEach(s => {
-      const el = document.getElementById('amount-' + s.id);
-      el.textContent = '単価未入力';
-      el.classList.add('empty');
-    });
-    const totalEl = document.getElementById('amount-total');
-    totalEl.textContent = formatYen(DESIGN_FEE_EXTAX) + '（デザイン費）＋ 工数分：単価未入力';
-    totalEl.classList.add('empty');
-    ['amount-tax','amount-total-tax'].forEach(id => {
-      const el = document.getElementById(id);
-      el.textContent = '-';
-      el.classList.add('empty');
-    });
-    return;
-  }
-
-  const dayRate = rate / 20;
-  document.getElementById('dayrate').textContent = '（日額 ' + formatYen(dayRate) + '）';
-
-  let totalLow = DESIGN_FEE_EXTAX, totalHigh = DESIGN_FEE_EXTAX;
-  systems.forEach(s => {
-    const low = s.low * dayRate;
-    const high = s.high * dayRate;
-    totalLow += low; totalHigh += high;
-    const el = document.getElementById('amount-' + s.id);
-    el.textContent = formatYen(low) + ' 〜 ' + formatYen(high);
-    el.classList.remove('empty');
-  });
-
-  const totalEl = document.getElementById('amount-total');
-  totalEl.textContent = formatYen(totalLow) + ' 〜 ' + formatYen(totalHigh);
-  totalEl.classList.remove('empty');
-
-  const taxLow = totalLow * 0.1, taxHigh = totalHigh * 0.1;
-  const taxEl = document.getElementById('amount-tax');
-  taxEl.textContent = formatYen(taxLow) + ' 〜 ' + formatYen(taxHigh);
-  taxEl.classList.remove('empty');
-
-  const totalTaxEl = document.getElementById('amount-total-tax');
-  totalTaxEl.textContent = formatYen(totalLow * 1.1) + ' 〜 ' + formatYen(totalHigh * 1.1);
-  totalTaxEl.classList.remove('empty');
-}
-calc();
-</script>
 
 </body>
 </html>

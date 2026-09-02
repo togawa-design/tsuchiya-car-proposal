@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>実績のご紹介 - オービット合同会社</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a2e;
+    --muted: #62667f;
+    --bg: #f0f2f5;
+    --mobile: #6b63f5;
+    --mobile-soft: #f2f1ff;
+    --web: #2f8fe0;
+    --web-soft: #eef7ff;
+    --border: #e7e8f1;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: var(--bg); color: var(--ink); }
+  .page { max-width: 980px; margin: 0 auto; padding: 0 24px 60px; }
+  h1 { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 24px; margin-bottom: 6px; letter-spacing: .2px; }
+  h2 { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px; color: var(--ink); margin-bottom: 4px; }
+  h3 { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14.5px; color: var(--ink); margin-bottom: 8px; line-height: 1.5; }
+  p { font-size: 13px; line-height: 1.8; color: var(--muted); }
+
+  .section { background: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); break-inside: avoid; page-break-inside: avoid; }
+  .section-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+  .section-head .tag {
+    font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .tag.mobile { background: var(--mobile-soft); color: var(--mobile); }
+  .tag.web { background: var(--web-soft); color: var(--web); }
+  .tag.neutral { background: #f2f2f7; color: #666; }
+
+  .gnav { background: var(--ink); height:44px; display:flex; align-items:center; padding:0 24px; gap:20px; font-size:12px; }
+  .gnav a { color:#aaa; text-decoration:none; opacity:.85; }
+  .gnav a.active { color:#fff; border-bottom:2px solid var(--mobile); padding-bottom:2px; opacity:1; }
+  .gnav .brand { color: var(--mobile); font-weight:700; letter-spacing:.5px; margin-right:8px; }
+
+  .cover {
+    background: linear-gradient(135deg,#15152a,#2b2b52 60%, #34316b);
+    color:#fff; padding: 48px 34px 38px; border-radius: 18px; margin: 24px 0 22px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .cover .kicker { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color:#a8b0ff; margin-bottom: 10px; }
+  .cover h1 { font-size: 28px; margin-bottom:12px; }
+  .cover p { color:#c7cbee; font-size: 13.5px; max-width: 640px; }
+  .chip-row { display:flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); color:#e6e8ff; font-size: 11.5px; font-weight: 700; padding: 7px 14px; border-radius: 20px; }
+
+  table { width:100%; border-collapse: collapse; font-size:13px; }
+  th { text-align:left; font-size:11px; color:#888; padding:9px 10px; border-bottom:2px solid #eee; white-space: nowrap; }
+  td { padding:11px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; line-height:1.6; color: var(--muted); }
+
+  .case-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .case {
+    border: 1px solid var(--border); border-radius: 14px; padding: 20px 20px 18px; position: relative; overflow: hidden;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .case::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; }
+  .case.mobile::before { background: var(--mobile); }
+  .case.web::before { background: var(--web); }
+  .case .no { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .case.mobile .no { color: var(--mobile); }
+  .case.web .no { color: var(--web); }
+  .case .pills { display:flex; gap:6px; flex-wrap:wrap; margin-top: 12px; }
+  .case .pill { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 10px; }
+  .case.mobile .pill { background: var(--mobile-soft); color: var(--mobile); }
+  .case.web .pill { background: var(--web-soft); color: var(--web); }
+
+  .more-card {
+    grid-column: 1 / -1; background: #fafafd; border: 1px dashed var(--border); border-radius: 14px;
+    padding: 16px 20px; display:flex; align-items:center; gap: 14px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .more-card .badge {
+    font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 12px; color: #fff;
+    background: var(--ink); border-radius: 8px; padding: 6px 12px; white-space: nowrap;
+  }
+  .more-card p { margin: 0; font-size: 12.5px; }
+
+  .stat-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .stat-card {
+    border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; background: #fafbff;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .stat-card .title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 6px; }
+  .stat-card .desc { font-size: 12px; color: var(--muted); line-height: 1.65; margin-bottom: 10px; }
+  .stat-card .result {
+    font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 16px; color: var(--mobile);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .info-box { background: var(--mobile-soft); border:1px solid #d9d5fb; border-radius:10px; padding:14px 16px; font-size:12.5px; color:#4a3fc7; margin-top:16px; line-height:1.7; break-inside: avoid; }
+  .footer-note { text-align:center; font-size:11px; color:#999; margin-top:16px; break-before: avoid; page-break-before: avoid; }
+
+  @media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid #eee; }
+  }
+</style>
+</head>
+<body>
+
+<div class="gnav">
+  <span class="brand">ツチヤ自動車様 ご提案</span>
+</div>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="kicker">TRACK RECORD</div>
+    <h1>オービット合同会社の実績のご紹介</h1>
+    <p>スマホアプリ開発からWeb・基幹系システムの開発・運用まで、業種を問わず数十件のプロジェクトを支援してきた実績をご紹介します。守秘義務の関係上、クライアント名は伏せております。</p>
+    <div class="chip-row">
+      <span class="chip">📱 iOS / Android</span>
+      <span class="chip">💻 Web / 基幹系システム</span>
+      <span class="chip">🛠️ 開発〜運用まで一貫対応</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="tag mobile">MOBILE</span>
+      <h2>スマホアプリ開発の実績</h2>
+    </div>
+    <div class="case-grid">
+      <div class="case mobile">
+        <div class="no">CASE 01</div>
+        <h3>大手美容・健康機器メーカー様<br>IoT対応フィットネスバイク連動アプリ</h3>
+        <p>Bluetooth通信によるハードウェア連携を軸に、走行データ・運動負荷のリアルタイム表示、トレーニング履歴の記録・可視化などを実装。BLE通信の安定性やファームウェア連携といったハードウェアメーカー特有の技術要件に対応しながら、日々使い続けたくなるアプリ体験を構築しました。</p>
+        <div class="pills"><span class="pill">iOS</span><span class="pill">Android</span><span class="pill">IoT / BLE連携</span></div>
+      </div>
+      <div class="case mobile">
+        <div class="no">CASE 02</div>
+        <h3>国内最大級のコスメ・美容<br>プラットフォーム運営企業様｜コンシューマーアプリ</h3>
+        <p>大規模な会員基盤を持つコンシューマー向けアプリの開発を担当。口コミ・レビュー検索、商品情報の閲覧、ECサイトとの連携、パーソナライズされたプッシュ通知配信など、日常的に使われるアプリとしての完成度を追求しました。</p>
+        <div class="pills"><span class="pill">iOS</span><span class="pill">Android</span><span class="pill">EC連携</span></div>
+      </div>
+      <div class="more-card">
+        <span class="badge">その他数十件</span>
+        <p>美容・健康、教育、小売、エンターテインメントなど、業種を横断してスマホアプリ開発を数多く手掛けています。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="tag web">WEB / INFRA</span>
+      <h2>Web開発・基幹系システム開発の実績</h2>
+    </div>
+    <div class="case-grid">
+      <div class="case web">
+        <div class="no">CASE 01</div>
+        <h3>中小企業向け｜採用管理システム開発</h3>
+        <p>求人管理・応募者管理・選考フローの進捗管理をワンストップで行える、オーダーメイドの採用システムを短納期で開発しました。</p>
+        <div class="pills"><span class="pill">採用管理</span><span class="pill">短納期開発</span></div>
+      </div>
+      <div class="case web">
+        <div class="no">CASE 02</div>
+        <h3>全国展開する大手ヨガスタジオ<br>運営企業様｜基幹系システム開発・運用</h3>
+        <p>会員管理・予約管理・店舗運営データを横断する基幹系システムの開発から、稼働後の継続的な運用・保守までを担当しました。</p>
+        <div class="pills"><span class="pill">基幹系</span><span class="pill">予約管理</span><span class="pill">運用保守</span></div>
+      </div>
+      <div class="case web">
+        <div class="no">CASE 03</div>
+        <h3>国内最大級のコスメ・美容<br>プラットフォーム運営企業様｜基幹系システム開発・運用</h3>
+        <p>大規模なトラフィックに対応する基幹系システムの開発・運用を、インフラ構築を含めて担当しました。</p>
+        <div class="pills"><span class="pill">基幹系</span><span class="pill">大規模インフラ</span></div>
+      </div>
+      <div class="more-card">
+        <span class="badge">その他数十件</span>
+        <p>採用・人事、EC、フィットネス、コミュニティサービスなど、多様な業種の基幹系・Webシステム開発・運用を手掛けています。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="tag neutral">MORE</span>
+      <h2>その他の実績（抜粋）</h2>
+    </div>
+    <p style="margin-bottom:16px;">自社Webサイト（<a href="https://www.obt-llc.com/" target="_blank" style="color:var(--mobile);">obt-llc.com</a>）でもご紹介している実績の一部です。</p>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="title">AI活用 営業管理システム</div>
+        <div class="desc">AIを活用して営業プロセスを自動化・可視化。</div>
+        <div class="result">レポート作成時間 -70%</div>
+      </div>
+      <div class="stat-card">
+        <div class="title">中小企業向けシステム開発</div>
+        <div class="desc">業務に最適化されたオーダーメイドシステムを短納期で開発。</div>
+        <div class="result">月間作業時間 -40%</div>
+      </div>
+      <div class="stat-card">
+        <div class="title">情報システム管理</div>
+        <div class="desc">社内IT環境の構築から運用・保守までをワンストップで支援。</div>
+        <div class="result">障害対応時間 -80%</div>
+      </div>
+      <div class="stat-card">
+        <div class="title">スタートアップ向けPM</div>
+        <div class="desc">MVP開発からプロダクトのスケール支援まで対応。</div>
+        <div class="result">計画通りMVPリリース</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="tag neutral">COMPANY</span>
+      <h2>オービット合同会社について</h2>
+    </div>
+    <p style="margin-bottom:14px;">「テクノロジーとクリエイティビティの力で、すべての人に感動を届ける」をミッションに、「中小企業の経営に伴走する右腕」として、AI導入支援・業務効率化・COO代行・プロダクト開発支援をワンストップで提供しています。</p>
+    <table>
+      <tr><th style="width:110px;">所在地</th><td>〒150-0043 東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F-C</td></tr>
+      <tr><th>設立</th><td>2025年9月</td></tr>
+      <tr><th>事業内容</th><td>業務効率化支援／COO代行／新規プロダクト相談／プロジェクトマネージメント／QA（品質保証）／ブランディング支援</td></tr>
+      <tr><th>Webサイト</th><td><a href="https://www.obt-llc.com/" target="_blank" style="color:var(--mobile);">https://www.obt-llc.com/</a></td></tr>
+    </table>
+    <div class="info-box">ビジョン：デジタル体験の革新をリードし、より良い未来を共に創造する／バリュー：挑戦・誠実・共創</div>
+  </div>
+
+  <div class="footer-note">オービット合同会社 実績のご紹介（2026-09-01作成）</div>
+
+</div>
+</body>
+</html>
